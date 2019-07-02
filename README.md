@@ -12,7 +12,7 @@ Then you need to download and install [MongoDB](https://www.mongodb.com/).
 
 ### Installing
 
-Install dependencies (in the app root directory)
+Install dependencies (in the clien and server directories)
 ```
 npm install
 ```
