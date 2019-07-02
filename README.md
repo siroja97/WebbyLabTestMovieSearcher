@@ -38,7 +38,8 @@ Back-End Web Application
 * [Mongoose](http://mongoosejs.com/) streamlines database interactions
 
 Front-End Website
-*[Javascript(ES6)](https://frontender.info/es6-in-depth-symbols/)
+* [Javascript(ES6)](https://frontender.info/es6-in-depth-symbols/) is fundamental in front-end
 * [React](https://facebook.github.io/react/) displays content quickly
-*[React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+* [React Router](https://reacttraining.com/react-router/web/guides/quick-start) make navigation in this app
+
 
