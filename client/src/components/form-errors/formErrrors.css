@@ -1,0 +1,10 @@
+.error_message{
+    color:red;
+    font-size:10px;
+}
+.error_field {
+    color:red !important;
+    font-size: 12px;
+    text-decoration: underline;
+
+}

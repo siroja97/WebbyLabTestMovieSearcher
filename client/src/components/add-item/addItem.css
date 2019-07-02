@@ -1,0 +1,89 @@
+.add_form{
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+
+}
+.add_form_wrapper {
+display: flex;
+flex-direction: column;
+align-items: center
+
+}
+add.form input {
+margin-bottom: 50px;
+
+}
+.add_form span {
+color: #9d9d9d;
+font-size: 15px
+
+}
+.add_form_item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+.add_form_label {
+color: #845;
+font-size: 20px;
+margin-bottom: 15px;
+margin-top:20px;
+    
+}
+.add_form_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+a {
+    color:#789;
+}
+.add_form_header a:hover{
+    opacity:0.8
+}
+
+
+a:active {
+    color:#789;
+
+   
+
+}
+.btn_movie{
+    width:100px;
+    align-self: center;
+}
+.btn_add:hover{
+    opacity:0.8;
+
+}
+.success_message {
+    color: green;
+    font-size:12px;
+ 
+    
+   
+
+}
+.fail_message {
+   color:red;
+   font-size:11px 
+}
+.has-error{
+    opacity: 0.5;
+}
+.success_message{
+    color:green;
+    font-size: 11px;
+}
+.warning_message{
+    font-size:8px;
+    color:#585878;
+    align-self: center;
+    margin:0;
+    margin-bottom: 5px;
+
+}

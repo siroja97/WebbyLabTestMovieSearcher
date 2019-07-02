@@ -1,0 +1,42 @@
+
+.tab_content {
+  display: flex;
+  justify-content: space-between;
+}
+li {
+  border-bottom: 1px solid #C0C0C0;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0, .2);
+
+}
+
+.todo_list_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  
+}
+.title_list_item {
+ padding-left: 10px;
+ color: #458;
+ font-size:medium;
+}
+.btns_list_item {
+  padding:10px;
+  display: flex;
+  align-items: center;
+ 
+}
+.trash{
+  padding-left: 20px;
+}
+.up{
+  transform: rotate(180deg)
+}
+.tab_item {
+font-size:12px;
+margin-left: 15px;
+color:#367;
+margin-right: 5px;
+
+}
