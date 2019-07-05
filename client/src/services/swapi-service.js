@@ -34,4 +34,19 @@ export default class SwapiService {
             console.log(e);
         }
     }
+    async uploadFile(json) {
+        try {
+            const resp = await fetch("http://localhost:9000/addMovies", {
+                method: "post",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(json)
+            });
+            return resp.json();
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }   

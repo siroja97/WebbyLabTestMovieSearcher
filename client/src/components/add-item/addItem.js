@@ -8,26 +8,26 @@ export default class AddItem extends Component{
         title: '',
         actors:'',
         year:'',
-        format:'',
+        format:'dvd',
         formErrors: {title: '', actors:'',year:'',format:''},
         titleValid: false,
         actorsValid:false,
         yearValid:false,
-        formatValid:false,
         formValid:false,
-        successMessage:false
+        successMessage:false,
+        failureMessage:false
     };
     handleUserInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({[name]: value},() =>  this.validateField(name, value) );
+        this.setState({failureMessage:false,successMessage:false})
     };
     validateField(fieldName, value) {
         let fieldValidationErrors = this.state.formErrors;
         let titleValid = this.state.titleValid;
         let actorsValid = this.state.actorsValid;
         let yearValid = this.state.yearValid;
-        let formatValid = this.state.formatValid;
         switch(fieldName) {
          case 'title':
             titleValid = value.length > 0;
@@ -41,10 +41,6 @@ export default class AddItem extends Component{
             yearValid = Number(value) > 1900 && Number(value)<2020;
             fieldValidationErrors.year =yearValid ? '': 'write real value (1901-2019)!';
             break;
-         case 'format':
-            formatValid = value.length > 2;
-            fieldValidationErrors.format = formatValid? '' : '  is bigger than 2 ';
-            break;
          default:
             break;
         }
@@ -52,13 +48,11 @@ export default class AddItem extends Component{
             titleValid:titleValid,
             actorsValid:actorsValid,
             yearValid:yearValid,
-            formatValid:formatValid
                       }, this.validateForm);
     };
     validateForm() {
         this.setState({formValid:this.state.titleValid && 
-            this.state.actorsValid && this.state.yearValid &&
-            this.state.formatValid
+            this.state.actorsValid && this.state.yearValid
         });
     };
     errorClass(error) {
@@ -66,12 +60,22 @@ export default class AddItem extends Component{
     };
     onSubmit = (e) => {
         e.preventDefault();
+        if(!this.state.formValid) { this.setState({failureMessage:true}) 
+            return;}
+
         this.setState({successMessage:true})
         const { title,actors,year,format } = this.state;
+        this.setState({
+            title:'',
+            actors:'',
+            year:''
+        })
         const cb = this.props.onItemAdded || (() => {});
         cb({title,actors,year,format});
+       
     };
     render() {
+        const fail = this.state.failureMessage ? <div className="error_message">You must fill in all fields!</div> : null;
         const success = this.state.successMessage ? <div className="success_message">Congratulations! Movie created!</div> : null ;
      return(
         <div className='add_form_wrapper'>
@@ -86,7 +90,7 @@ export default class AddItem extends Component{
                                 name ='title'
                                 placeholder = ' name of Movie'
                                 onChange={this.handleUserInput}
-                                value={this.state.name} >
+                                value={this.state.title} >
                             </input>
                         </div>
                         <div className ={ `add_form_item  ${this.errorClass(this.state.formErrors.actors)}`}>
@@ -109,17 +113,17 @@ export default class AddItem extends Component{
                             </div>
                             <div className = {`add_form_item  ${this.errorClass(this.state.formErrors.format)}`}>
                             <span>format:</span>
-                            <input type ='text'
-                                    name='format'
-                                    placeholder = 'format this movie'
-                                    onChange={this.handleUserInput}
-                                    value={this.state.format}>
-                            </input>
+                            <select name='format' value={this.state.format} onChange={this.handleUserInput}> 
+                                <option value='DVD'>DVD</option>
+                                <option value='VHC'>VHC</option>
+                                <option value='BLU-RAY'>BLU-RAY</option>
+                            </select>
                         </div>
                         <p className="warning_message">*all fields is required</p>
                         <FormErrors formErrors={this.state.formErrors} />
                         {success}
-                        <button type='submit' className="btn_add btn_movie" disabled={!this.state.formValid}> Add Movie</button>
+                        {fail}
+                        <button type='submit' className="btn_add btn_movie">Add Movie</button>
                 </form>
         </div>
      )

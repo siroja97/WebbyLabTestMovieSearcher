@@ -3,7 +3,7 @@
   color:#845;
   font-size:20px;
 }
-.btn_add {
+.btn_add  {
   font-size: 10px;
   text-decoration: none;
   padding:0.3em 1.2em;
@@ -24,6 +24,26 @@
   .btn_add a{
   text-decoration: none;
   color:#FFFFFF;
+  }
+  .sort_btn{
+  margin-left:10px;
+  border: 2px solid #9d9d9d;
 
   }
-
+  .sort_btn:active{
+   outline:none;
+  }
+  .sort_btn:focus{
+    outline:none;
+   }
+  .inverse{
+    transform: rotate(180deg)
+  }
+  .load_btn {
+    font-size: 10px;
+    font-weight:20;
+    color:#FFFFFF;
+    background-color:#5669;
+    text-align:center;
+    transition: all 0.2s;
+    }

@@ -38,5 +38,8 @@ font-size:12px;
 margin-left: 15px;
 color:#367;
 margin-right: 5px;
-
+}
+.stars{
+  max-width: 250px;
+  word-wrap: break-word;
 }
